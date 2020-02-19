@@ -1,0 +1,45 @@
+﻿전시해 사이트 구축을 위한 MySQL 데이타베이스 설정
+0. DOS창에서 mysql을 접속하거나 workbench에서 root로 접속한다.
+도스창에서는 mysql -u root -p <enter> : 학원 PC의 root password는 class1임 
+1. artshowdb DB 생성하기 
+1) DB 목록을 디스플레이한다. 
+show databases; <enter> 
+2) DB를 생성한다. 
+create database artshowdb default character set UTF8 collate utf8_general_ci; <enter> 	
+3) DB가 생성되었는지 확인한다. 
+show databases; <enter> 
+4) DB용 유저를 생성한다.(주의점- 패스워드에 ''를 꼭 붙여야한다.) Java JDBC 설정을 위해 DB명 및 유저명과 패스워드는 통일한다. 
+create user artmaster@localhost identified by '1111';
+5) DB 권한을 부여한다.
+grant all privileges on artshowdb.* to artmaster@localhost identified by '1111'; <enter> 
+6) DOS창에서 artmaster로 connect하거나 workbench에서 artmaster로 접속한다.   
+도스창에서는 connect artmaster <enter>
+7) 데이타베이스 목록을 확인한다. 
+show databases; <enter> 
+8) artshowdb를 open한다. 
+use artshowdb; <enter>
+
+
+DB를 단일서버(외부서버)-192.168.11.9로 통합하기 
+0. root권한으로 서버로 사용할 MySQL서버에 접속한다.
+mysql -u root -p <enter>
+1. 다음과 같이 각 IP어드레스에 권한을 할당한다.  
+GRANT ALL PRIVILEGES ON *.* TO root@'ip주소' IDENTIFIED BY '비밀번호'' WITH GRANT OPTION;
+예)
+grant all privileges on *.* to artmaster@192.168.11.8 identified by '1111' with grant option;
+grant all privileges on *.* to artmaster@192.168.11.1 identified by '1111' with grant option;
+grant all privileges on *.* to artmaster@192.168.11.2 identified by '1111' with grant option;
+grant all privileges on *.* to artmaster@192.168.11.7 identified by '1111' with grant option;
+grant all privileges on *.* to artmaster@ITW identified by '1111' with grant option;
+
+2. 다음 명령을 실행한다.  
+flush privileges;
+
+3. 각 PC에서 다음을 실행하여 DB 서버로 접속이 되는지 테스트한다. 
+mysql -h 192.168.11.9 -u artmaster -p
+
+4. 이클립스 톰캣서버의 server.xml을 변경하고 어플리케이션 프로젝트를 실행한 후, DB 서버로 접속이 되는지를 테스트한다.  
+server.xml변경하기 => url항목의 localhost를 DB서버의 IP address로 변경한다. 
+	예) url="jdbc:mysql://localhost:3306/artshowdb?useUnicode=true&amp;characterEncoding=utf8" => url="jdbc:mysql://192.168.11.9:3306/artshowdb?useUnicode=true&amp;characterEncoding=utf8"
+	<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" loginTimeout="10" maxActive="50" maxIdle="20" maxWait="5000" name="jdbc/artshowdb" password="1111" testOnBorrow="true" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/artshowdb?useUnicode=true&amp;characterEncoding=utf8" username="artmaster"/> 
+

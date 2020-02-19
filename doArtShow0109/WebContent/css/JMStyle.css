@@ -1,0 +1,137 @@
+<style>
+/* top과 bottom 사이의 메인 구조 */
+	#mainContainer th{
+    	width: 40%;
+	}
+	
+	/* 테이블의 tr의 label */
+	.tableLabel{
+		margin-right: 5vw;
+		width:20vw;
+		text-align: left;
+		font-size: 1.2em;
+    }
+    
+    /* input text 칸 */
+    #mainContainer > .form-control{
+     	width: 45vh;
+    }
+    
+    /* 라디오버튼, 체크박스 */
+    .form-check-input, .checkbox{
+    	width : 10vw;
+    	margin : 0;
+    	display : inline;
+    }
+    
+    #mainContainer > tr{
+    	height:15vh;
+    }
+    .check_tr{
+    	overflow:hidden;
+    	height:5vh;
+    }
+    
+    @media (max-width: 1340px) {
+		#mainContainer{
+			min-height: 63vh;
+			margin-top : 22vh;
+			margin-bottom : 10vh;
+			width: 95vw;
+		}
+	}
+    @media (min-width: 1340px) {
+		#mainContainer{
+			min-height: 66vh;
+			margin-bottom : 10vh;
+			width: 95vw;
+		}
+	}
+	
+	#formTitle{
+		font-size: 1.8em;
+		margin-bottom : 15vh;
+		align : left;
+		font-weight: bold;
+	}
+    #mainContainer > div > a:link { color: skyblue; text-decoration: none;}
+	#mainContainer > div > a:visited { color: skyblue; text-decoration: none;}
+	#mainContainer > div > a:hover { color: skyblue; text-decoration: none;}
+	#mainContainer > div > a { width:200px; margin:10px;}
+   
+/*    #pDiv{
+   	margin-top : 15vh;
+   	margin-bottom : 10vh;
+   	font-size : 1.8em;
+   } */
+
+    .box a:link ,.box2 a:link , .iconDiv a:link { color: gray; text-decoration: none; }
+    .box a:visited,.box2 a:visited, .iconDiv a:visited { color: gray; text-decoration: none; }
+    .box a:hover ,.box2 a:hover , .iconDiv a:hover { color: gray; text-decoration: underline; }
+
+/* memberPage.jsp에 대한 css */
+    @media (max-width: 1200px) {
+	    .box{
+	        height : 35vh;
+	        width : 100%;
+	        margin-bottom : 10vh;
+	        border : 1px dashed #bcbcbc;
+	    }
+    }
+    @media (min-width: 1200px) {
+	    .box{
+	        height : 35vh;
+	        width : 100%;
+	        margin-bottom : 10vh;
+	        border : 1px dashed #bcbcbc;
+	    }
+    }
+
+
+    .box p{
+      vertical-align: middle;
+      margin-top: 15vh;
+      font-weight: bold;
+      font-size: 1.8em;
+      text-align: center;
+    }
+    
+    @media (max-width: 1200px) {
+	    .box2{
+	        min-height : 60vh;
+	        width : 100%;
+	        margin-bottom : 10vh;
+	        border : 1px dashed #bcbcbc;
+	    }
+    }
+    @media (min-width: 1200px) {
+	    .box2{
+	        height : 60vh;
+	        width : 100%;
+	        margin-bottom : 10vh;
+	        border : 1px dashed #bcbcbc;
+	    }
+    }
+
+
+    .box2 p{
+      vertical-align: middle;
+      margin-top: 25vh;
+      font-weight: bold;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+
+    #mainBox{
+    	margin-top : 20px;
+    	padding-top : 20px;
+    }
+    
+    iframe {
+    	width : 100%;
+    }
+    
+    
+
+</style>

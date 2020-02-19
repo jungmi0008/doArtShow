@@ -1,0 +1,22 @@
+1) 도스창에서 다음을 실행한다. 
+mysqldump -u root -p --databases artshowdb > artshowdb_2020_01_27.sql
+*https://code-factory.tistory.com/21
+
+2) 
+-. mysql -u artmaster -p
+-. use artshowdb 
+-. artshowdb의 모든 유저 테이블을 drop한다. 
+drop artshow
+drop artshowtag 
+drop member
+drop manager
+drop visitArt
+....
+ 
+3) 아래 명령을 실행한다. 
+MySQL 콘솔에서  
+-. source d:\work1\mysqldb\artshowdb_2020_01_27.sql
+혹은
+도스창에서 
+-. mysql -u artmaster -p 1111 artshowdb < artshowdb_2020_01_27.sql
+*https://jootc.com/p/201807231405

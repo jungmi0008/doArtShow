@@ -1,0 +1,78 @@
+
+    <!-- ============= Footer 셋팅	==================== -->
+    <footer>
+        <div class="container text-center">
+            <p>COPYRIGHT(c) by <span id="footer-company">전시:해</span>.com
+                이 페이지의 저작권은 누구에게도 있고 누구누누구구구구</p>
+        </div>
+    </footer>
+
+    <!-- ============= JavaScript 셋팅	==================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/doArtShow/js/jquery-3.4.1.js"></script>
+    <script src="/doArtShow/js/jquery.easing.min.js"></script>
+    
+    
+    <script src="/doArtShow/js/bootstrap.min.js"></script>
+    <script src="/doArtShow/js/GNBAnimatedHeader.js"></script>
+    <script src="/doArtShow/js/jquery.appear.js"></script>
+    
+	<!--================ 커스텀 script 파일 ================  -->    
+    <script src="/doArtShow/js/naveridlogin_js_sdk_2.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>Kakao.init('3f954d79af6a536ec76db999e7f2ba5b');</script>
+
+    <script src="/doArtShow/js/kakaoscript.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/doArtShow/js/naverLoginscript.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/doArtShow/js/ifReadyscript.js"></script>
+    <script src="/doArtShow/js/exhFunction.js"></script>
+	
+    
+	
+	<!-- ================ script  ================  -->
+	<script type="text/javascript">
+
+	$("#inpt_search").on('focus', function () {
+		$(this).parent('label').addClass('active');
+	});
+
+	$("#inpt_search").on('blur', function () {
+		if($(this).val().length == 0)
+			$(this).parent('label').removeClass('active');
+	});
+	
+	
+	</script>
+	
+	<script>
+	//회원 로그인 유효성 검사
+	function validateLogin(loginForm){
+		event.preventDefault();
+	    if(!loginForm.email.value){
+	        $("#chkLoginEmail").text("이메일을 입력하세요");
+	        $("#chkLoginEmail").css('color','red');
+	        loginForm.email.focus();
+	        return;
+	    }
+	    if(!loginForm.pw.value){
+	        $("#chkLoginPw").text("비밀번호를 입력하세요");
+	        $("#chkLoginPw").css('color','red');
+	        loginForm.pw.focus();
+	        return;
+	    }
+	    loginForm.submit();
+	}
+	
+	$(document).ready(function(){
+		$("#login_email").keyup(function(){
+			if($("#login_email").val() != ""){
+				$("#chkLoginEmail").text("")
+			}
+		});
+		$("#login_pw").keyup(function(){
+			if($("#login_pw").val() != ""){
+				$("#chkLoginPw").text("")
+			}
+		});
+	});
+	</script>

@@ -1,0 +1,8 @@
+create table manager (
+managerId varchar(50) not null primary key, -- �Ŵ������̵�
+managerPasswd varchar(16) not null -- �Ŵ��� ��й�ȣ
+) default character set utf8 collate utf8_general_ci;
+
+insert into manager(managerId, managerPasswd) values ('admin', '1111');
+
+create table visitPage(visitDate date not null);
