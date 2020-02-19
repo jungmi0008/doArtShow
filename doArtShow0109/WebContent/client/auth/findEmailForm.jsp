@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:include page="../../module/1doctype_head.jsp"></jsp:include>
 
 <body>
@@ -25,8 +28,38 @@
                 </tr>
                 <tr>
                     <th><label class="tableLabel">생년월일</label></th>
-                    <td><input class="form-control" type="text" name="birth" id="input_birth" placeholder="생년월일(8자리)"
-                            maxlength="10"></td>
+                    <td>
+                    <select id="year" style="width: 100px;">
+                    	<c:set var="today" value="<%=new java.util.Date()%>" />
+                    	<fmt:formatDate value="${today}" pattern="yyyy" var="start"/>
+          					<c:forEach begin="0" end="80" var="idx" step="1">
+	          					<option value="<c:out value="${start - idx}" />">
+	          					<c:out value="${start - idx}" />
+	          					</option>
+         					</c:forEach>
+
+					</select>
+					<label>년&nbsp;&nbsp;</label>
+                    <select id="month" style="width: 100px;">
+          					<c:forEach begin="1" end="12" var="idx" step="1">
+	          					<option value="<c:out value="${idx}" />">
+	          					<c:out value="${idx}" />
+	          					</option>
+         					</c:forEach>
+
+					</select>
+					<label>월&nbsp;&nbsp;</label>
+                    <select id="day" style="width: 100px;">
+          					<c:forEach begin="1" end="31" var="idx" step="1">
+	          					<option value="<c:out value="${idx}" />">
+	          					<c:out value="${idx}" />
+	          					</option>
+         					</c:forEach>
+
+					</select>
+					<label>일&nbsp;&nbsp;</label>
+                        <input type="hidden" name="birth">
+                    </td>
                 </tr>
                 <tr>
                     <td></td>

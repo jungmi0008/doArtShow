@@ -57,7 +57,7 @@
                                                 </div>
                                             </div>
                                         <div class="revContent">
-                                            ${review.revContent}
+                                            <pre style="height:100%; white-space:pre-line; border:none;">${review.revContent}</pre>
                                         </div>
                                     </div>
                                 </div>

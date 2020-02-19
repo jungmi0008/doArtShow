@@ -364,7 +364,7 @@ public class MemberDao {
          sql     += "FROM   artshow ";
          sql     += "WHERE    exhID   IN ( SELECT exhID ";
          sql     +=                   "FROM   wishart ";
-         sql     +=                   "WHERE  email=?)";
+         sql     +=                   "WHERE  email=? and wishCheck=1)";
          
          pstmt    = conn.prepareStatement(sql);
          pstmt.setString(1, email);
@@ -407,7 +407,7 @@ public class MemberDao {
          conn    = ds.getConnection();
          sql     = "SELECT  count(*) ";
          sql    += "FROM   wishart    ";
-         sql    += "WHERE   email=?    ";
+         sql    += "WHERE   email=? and wishCheck=1";
          
          pstmt    = conn.prepareStatement(sql);
          pstmt.setString(1, email);
@@ -447,7 +447,7 @@ public class MemberDao {
          sql    += "FROM   artshow ";
          sql    += "WHERE    exhID   IN ( SELECT exhID     ";
          sql    +=                   "FROM   visitart ";
-         sql    +=                   "WHERE  email=?) ";
+         sql    +=                   "WHERE  email=? and visitCheck=1) ";
          pstmt   = conn.prepareStatement(sql);
          pstmt.setString(1, email);
          rs      = pstmt.executeQuery();
@@ -489,7 +489,7 @@ public class MemberDao {
          conn    = ds.getConnection();
          sql     = "SELECT  count(*) ";
          sql    += "FROM   visitart ";
-         sql    += "WHERE   email=?    ";
+         sql    += "WHERE   email=? and visitCheck=1";
          
          pstmt    = conn.prepareStatement(sql);
          pstmt.setString(1, email);
